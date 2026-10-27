@@ -1,4 +1,5 @@
 package io.github.frozzik1.taskmanager;
+import io.github.frozzik1.taskmanager.exception.TaskNotFoundException;
 import io.github.frozzik1.taskmanager.model.BugTask;
 import io.github.frozzik1.taskmanager.model.FeatureTask;
 import io.github.frozzik1.taskmanager.model.Task;
@@ -18,6 +19,13 @@ public class Main {
         System.out.println("=== Search result ===");
         Task foundTask = manager.findTaskById(1);
         System.out.println(foundTask);
+
+        try {
+            Task missingTask = manager.findTaskById(999);
+            System.out.println(missingTask);
+        } catch (TaskNotFoundException e) {
+            System.out.println("Error caught: " + e.getMessage());
+        }
 
     }
 }

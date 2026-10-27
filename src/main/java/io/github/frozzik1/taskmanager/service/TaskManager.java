@@ -1,4 +1,5 @@
 package io.github.frozzik1.taskmanager.service;
+import io.github.frozzik1.taskmanager.exception.TaskNotFoundException;
 import io.github.frozzik1.taskmanager.model.Task;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +21,9 @@ public class TaskManager {
         for (Task task : tasks){
             if (task.getId() == id){
                 return task;
+            }
+            else {
+                throw new TaskNotFoundException("Task with id " + id + " not found.");
             }
         }
         return null;
