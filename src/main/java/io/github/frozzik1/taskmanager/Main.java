@@ -3,16 +3,21 @@ import io.github.frozzik1.taskmanager.model.BugTask;
 import io.github.frozzik1.taskmanager.model.FeatureTask;
 import io.github.frozzik1.taskmanager.model.Task;
 import io.github.frozzik1.taskmanager.model.TaskStatus;
+import io.github.frozzik1.taskmanager.service.TaskManager;
 
 public class Main {
     public static void main(String[] args) {
         Task bug = new BugTask("NullPointerException in AuthService", "Fix crash on login", "Critical");
-
-        System.out.println(bug);
-        bug.setStatus(TaskStatus.IN_PROGRESS);
-        System.out.println("Updated: " + bug);
-
         Task feature = new FeatureTask("First normal Task", "This is only start", 3);
-        System.out.println(feature);
+
+        TaskManager manager = new TaskManager();
+        manager.addTask(bug);
+        manager.addTask(feature);
+        System.out.println("=== ALL TASKS ===");
+        manager.printAllTasks();
+        System.out.println("=== Search result ===");
+        Task foundTask = manager.findTaskById(1);
+        System.out.println(foundTask);
+
     }
 }
