@@ -1,4 +1,6 @@
 package io.github.frozzik1.taskmanager;
+import io.github.frozzik1.taskmanager.model.Task;
+import io.github.frozzik1.taskmanager.model.TaskPriority;
 import java.util.Scanner;
 
 public class Main {
