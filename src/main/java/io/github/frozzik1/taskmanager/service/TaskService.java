@@ -43,5 +43,4 @@ public class TaskService {
         Task task = getById(id);
         tasks.remove(task);
     }
-    // TODO: getById, start, complete, delete
 }
