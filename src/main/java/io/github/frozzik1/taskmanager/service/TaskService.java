@@ -39,7 +39,7 @@ public class TaskService {
         Task task = getById(id);
         task.complete();
     }
-    public void delete(List<Task> tasks, long id){
+    public void delete(long id){
         Task task = getById(id);
         tasks.remove(task);
     }
