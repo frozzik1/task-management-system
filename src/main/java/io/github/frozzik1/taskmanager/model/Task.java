@@ -47,28 +47,33 @@ public class Task {
         status = TaskStatus.IN_PROGRESS;
     }
 
-    public void complete(){
-        if (status == TaskStatus.DONE){
-           throw new IllegalStateException("Task is already completed");
+    public void complete() {
+        if (status == TaskStatus.DONE) {
+            throw new IllegalStateException("Task is already completed");
         }
         status = TaskStatus.DONE;
     }
 
-    public long getId(){
+    public long getId() {
         return id;
     }
-    public String getTitle(){
+
+    public String getTitle() {
         return title;
     }
-    public String getDescription(){
+
+    public String getDescription() {
         return description;
     }
-    public TaskPriority getPriority(){
+
+    public TaskPriority getPriority() {
         return priority;
     }
-    public LocalDateTime getCreatedAt(){
+
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
+
     public TaskStatus getStatus() {
         return status;
     }
@@ -80,6 +85,6 @@ public class Task {
                 "Description: %s%n" +
                 "Priority:    %s%n" +
                 "Status:      %s%n" +
-                "Created:     %s%n", id, title, description, priority, status,createdAt.format(DATE_FORMAT));
+                "Created:     %s", id, title, description, priority, status, createdAt.format(DATE_FORMAT));
     }
 }
